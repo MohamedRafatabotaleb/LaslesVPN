@@ -4,6 +4,10 @@
 
 LaslesVPN is a sophisticated web development project created using HTML5, CSS3, and Sass (SCSS). This project highlights modern web design practices, including responsive design, CSS animations, CSS Flexbox, and CSS Grid. It was developed as my graduation project from an intensive HTML and CSS course.
 
+### Screenshot
+
+![Project Screenshot](images/Screenshot.png)
+
 ## ✨ Features
 
 - **HTML5:** Structuring the website with semantic elements.
