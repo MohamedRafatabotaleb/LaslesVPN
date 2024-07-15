@@ -1,0 +1,187 @@
+@import "../styles/mixins";
+
+.burger-menu__checkbox {
+  display: none;
+}
+
+.header {
+  @include display-flex(row, center, center);
+  gap: 4vw;
+  // position: sticky;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  z-index: 1000;
+  padding: var(--default-padding) 0;
+  transition: 0.5s ease-in-out;
+  width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    border-bottom: 3px solid var(--color-dark-blue);
+    // box-shadow: 0 7px 30px rgba($color: #f53838, $alpha: 0.65);
+
+    background-color: var(--color-background);
+    z-index: -1;
+    top: 0;
+
+    transition: 0.5s ease-in-out;
+  }
+}
+
+.logoContent {
+  @include display-flex(row, center, center);
+
+  gap: calc(var(--default-padding) / 2);
+  font-weight: var(--font-weight-500);
+  font-size: var(--font-size-20);
+  color: var(--color-dark-blue);
+}
+
+.links {
+  @include display-flex(row, center, center);
+
+  gap: calc(var(--default-padding) * 2);
+  color: var(--color-gray);
+  font-size: var(--font-size-16);
+  max-width: 100%;
+
+  &__link {
+    transition: var(--timing-animation) ease-in-out;
+
+    &:hover {
+      color: var(--color-soft-red);
+    }
+  }
+}
+
+.signin,
+.signup {
+  display: none;
+}
+
+.sign {
+  @include display-flex(row, center, center);
+
+  white-space: nowrap;
+  gap: calc(var(--default-padding) * 2);
+  font-weight: var(--font-weight-500);
+
+  & :nth-child(2) {
+    width: 150px;
+    height: 45px;
+    border: 1px solid var(--color-soft-red);
+    border-radius: calc(var(--default-radius) * 7);
+    color: var(--color-soft-red);
+    padding: calc(var(--default-padding) / 2) var(--default-padding);
+    text-align: center;
+    transition: var(--timing-animation) ease-in-out;
+
+    &:hover {
+      background-color: var(--color-soft-red);
+      color: var(--color-white);
+    }
+  }
+
+  &__link {
+    transition: var(--timing-animation) ease-in-out;
+
+    &:hover {
+      color: var(--color-soft-red);
+    }
+  }
+}
+.toggle {
+  display: flex;
+  gap: 1rem;
+}
+
+.toggle__checkbox {
+  display: none;
+}
+
+.toggle__label {
+  display: block;
+  position: relative;
+  background-color: var(--color-dark-blue);
+  border: 1px solid var(--color-dark-blue);
+  border-radius: 1.5rem;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  transition: 1s ease-in-out;
+}
+
+.toggle__label::after,
+.toggle__label::before {
+  content: "";
+  position: absolute;
+  top: 7px; /* (30px height - 15px height) / 2 */
+  left: 7px; /* (30px width - 15px width) / 2 */
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.toggle__label::after {
+  background-image: url("/images/moon.png");
+  opacity: 1;
+  transform: scale(1);
+}
+
+.toggle__label::before {
+  background-image: url("/images/sun2.png");
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.toggle__checkbox:checked + .toggle__label::after {
+  opacity: 0;
+  transform: scale(0.5) rotate(360deg);
+}
+
+.toggle__checkbox:checked + .toggle__label::before {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+}
+
+.toggle__checkbox:checked + .toggle__label {
+  background-color: rgb(13, 51, 123);
+  border: 1px solid var(--color-soft-red);
+  box-shadow: 0 0px 10px 4px rgba($color: #fe0000, $alpha: 0.5);
+}
+
+html:has(.toggle__checkbox:checked) {
+  --color-background: var(--color-black);
+  --color-dark-blue: var(--color-soft-red);
+  --color-gray: var(--color-white);
+  --color-footer: var(--color-black);
+
+  & .section__information {
+    box-shadow: 0 7px 30px 10px rgba($color: #ffffff, $alpha: 0.1);
+  }
+
+  & .section__help {
+    background-color: var(--color-black);
+    box-shadow: 0 7px 30px 10px rgba($color: #ffffff, $alpha: 0.1);
+  }
+
+  & .footer__list {
+    color: var(--color-white);
+  }
+
+  & .social__link__img {
+    box-shadow: 0 1px 5px 2px rgba($color: #fc0202, $alpha: 0.5);
+  }
+
+  & .sign .sign__link:nth-child(1) {
+    color: var(--color-white);
+  }
+}

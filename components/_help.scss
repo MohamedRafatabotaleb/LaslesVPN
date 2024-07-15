@@ -1,0 +1,36 @@
+@import "../styles/mixins";
+
+.section__help {
+  @include display-flex(row, center, space-between);
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  border-radius: calc(var(--default-padding) / 2);
+  box-shadow: 0 7px 30px 10px rgba($color: #0d1025, $alpha: 0.1);
+  padding: calc(var(--default-padding) * 3) 7%;
+}
+
+.help__txt {
+  width: 372px;
+
+  &__title {
+    @include mobile {
+      font-size: var(--font-size-30);
+    }
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-35);
+    font-weight: var(--font-weight-500);
+    padding-bottom: var(--default-padding);
+  }
+}
+
+.help__txt__data {
+  color: var(--color-gray);
+}
+
+.section__help .section__btn {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}

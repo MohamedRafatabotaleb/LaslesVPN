@@ -1,0 +1,32 @@
+@import "../styles/mixins";
+
+.features .section__data .section__title {
+  font-size: var(--font-size-35);
+}
+
+.features .section__data {
+  width: 100%;
+
+  justify-self: center;
+
+  @include mobile {
+    @include display-flex(column, center, center);
+    gap: var(--default-padding);
+    width: 100%;
+  }
+}
+
+.features__list {
+  @include display-flex(column, left, center);
+
+  gap: calc(var(--default-padding));
+  margin-top: var(--default-padding);
+  font-size: var(--font-size-14);
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--default-padding) / 2);
+    color: var(--color-gray);
+  }
+}

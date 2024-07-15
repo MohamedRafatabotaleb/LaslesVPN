@@ -1,0 +1,83 @@
+@import "../styles/mixins";
+
+.footer {
+  @include display-flex(row, flex-start, center);
+  gap: 10vw;
+  max-width: 100%;
+  padding: 65px 2%;
+  position: relative;
+  --top-offset: -100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--top-offset);
+    width: 100vw;
+    height: calc(100% + (var(--top-offset) * -1));
+    background-color: var(--color-footer);
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+  }
+
+  &__right {
+    @include display-flex(row, flex-start, center);
+    gap: 126px;
+  }
+
+  &__logo {
+    width: 100%;
+    @include display-flex(column, flex-start, center);
+    gap: 30px;
+
+    & p {
+      color: var(--color-gray);
+    }
+  }
+}
+
+.footer__list {
+  @include display-flex(column, left, center);
+  gap: var(--default-padding);
+  color: #4f5665;
+
+  & :nth-child(1) {
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-500);
+    padding-bottom: calc(var(--default-padding) / 2);
+    color: var(--color-dark-blue);
+    cursor: auto;
+
+    &:hover {
+      color: var(--color-dark-blue);
+    }
+  }
+
+  &__row {
+    cursor: pointer;
+    transition: var(--timing-animation) ease-in-out;
+
+    &:hover {
+      color: var(--color-soft-red);
+    }
+  }
+}
+
+.footer__social {
+  @include display-flex(row, left, center);
+  gap: var(--default-padding);
+}
+
+.social__link__img {
+  width: 34px;
+  height: 34px;
+  box-shadow: 0 1px 5px 1px rgba($color: #0d1025, $alpha: 0.2);
+  border-radius: 50%;
+}
+
+.social__link {
+  transition: calc(var(--timing-animation) * 2);
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+}
